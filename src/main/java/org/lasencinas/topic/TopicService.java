@@ -10,12 +10,16 @@ import java.util.List;
 public class TopicService {
 
     List<Topic> topics = new ArrayList<>(Arrays.asList(
-            new Topic("Spring", "Spring Frameword", "Spring Framework Description"),
+            new Topic("spring", "Spring Frameword", "Spring Framework Description"),
             new Topic("java", "Core Java", "Core Java Description"),
             new Topic("javascript", "JavaScript", "JavaScript Description")
     ));
 
     public List<Topic> getAllTopics() {
         return topics;
+    }
+
+    public Topic getTopic(String id) {
+        return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
     }
 }
